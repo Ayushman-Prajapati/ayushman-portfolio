@@ -1,14 +1,18 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from 'react';
-import { Terminal as TerminalIcon } from 'lucide-react';
+import { Terminal as TerminalIcon, X } from 'lucide-react';
 
 interface Log {
   type: 'input' | 'output' | 'error';
   text: string;
 }
 
-const InteractiveTerminal = () => {
+interface InteractiveTerminalProps {
+  onClose?: () => void;
+}
+
+const InteractiveTerminal = ({ onClose }: InteractiveTerminalProps) => {
   const [logs, setLogs] = useState<Log[]>([
     { type: 'output', text: 'Welcome to ayushman.dev secure terminal. Type "help" or "ayushman --help" to view available commands.' }
   ]);
@@ -20,6 +24,16 @@ const InteractiveTerminal = () => {
         containerRef.current.scrollTop = containerRef.current.scrollHeight;
     }
   }, [logs]);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && onClose) {
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [onClose]);
 
   const handleCommand = (cmd: string) => {
     const trimmed = cmd.trim().toLowerCase();
@@ -33,6 +47,11 @@ const InteractiveTerminal = () => {
       return;
     }
 
+    if (trimmed === 'exit' && onClose) {
+      onClose();
+      return;
+    }
+
     if (trimmed === 'help' || trimmed === '--help' || trimmed === 'ayushman --help') {
       responseText = `
 Available Commands:
@@ -41,6 +60,7 @@ Available Commands:
 - projects     : List deployed operations
 - contact      : Show connection endpoints
 - clear        : Clear terminal output
+- exit         : Close the terminal session
 - sudo rm -rf /: [ACCESS DENIED]
 `;
     } else if (trimmed === 'whoami') {
@@ -73,20 +93,34 @@ Available Commands:
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto bg-[#0a0a0a] rounded-lg border border-gray-800 shadow-[0_0_20px_rgba(34,197,94,0.1)] overflow-hidden font-mono text-sm sm:text-base">
-      <div className="bg-[#111] px-4 py-2 flex items-center gap-2 border-b border-gray-800">
-        <div className="flex gap-2">
-          <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
-          <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-          <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
+    <div className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-md flex flex-col font-mono text-sm md:text-base animate-in fade-in zoom-in-95 duration-200">
+      <div className="bg-[#111] px-4 py-3 flex items-center justify-between border-b border-gray-800">
+        <div className="flex gap-2 w-16">
+          <button onClick={onClose} className="w-3.5 h-3.5 rounded-full bg-red-500 hover:bg-red-400 focus:outline-none flex items-center justify-center group" aria-label="Close">
+             <X className="w-2.5 h-2.5 opacity-0 group-hover:opacity-100 text-black" />
+          </button>
+          <div className="w-3.5 h-3.5 rounded-full bg-yellow-500/80"></div>
+          <div className="w-3.5 h-3.5 rounded-full bg-green-500/80 border border-green-600/50 shadow-[0_0_5px_rgba(34,197,94,0.5)]"></div>
         </div>
-        <div className="flex-1 text-center text-gray-400 text-xs flex items-center justify-center gap-2">
-          <TerminalIcon className="w-3 h-3" />
+        <div className="flex-1 text-center text-gray-400 text-sm flex items-center justify-center gap-2">
+          <TerminalIcon className="w-4 h-4" />
           <span>visitor@ayushman.dev : ~</span>
+        </div>
+        <div className="w-16 flex justify-end">
+          <button onClick={onClose} className="text-gray-500 hover:text-white transition-colors">
+            <X className="w-6 h-6" />
+          </button>
         </div>
       </div>
       
-      <div ref={containerRef} className="p-4 h-[300px] overflow-y-auto bg-black/50 text-green-400 font-mono flex flex-col gap-2">
+      <div 
+        ref={containerRef} 
+        className="flex-1 p-4 md:p-8 overflow-y-auto text-green-400 font-mono flex flex-col gap-2"
+        onClick={() => {
+           const input = document.getElementById('terminal-input');
+           if (input) input.focus();
+        }}
+      >
         {logs.map((log, index) => (
           <div key={index} className={log.type === 'error' ? 'text-red-400' : 'text-green-400'}>
             {log.type === 'input' ? (
@@ -99,6 +133,7 @@ Available Commands:
         <form onSubmit={onSubmit} className="flex gap-2 mt-2">
           <span className="text-green-500 shrink-0">visitor@ayushman.dev:~$</span>
           <input
+            id="terminal-input"
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}

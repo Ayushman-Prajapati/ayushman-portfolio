@@ -28,6 +28,7 @@ import InteractiveTerminal from "./components/InteractiveTerminal";
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
+  const [isTerminalOpen, setIsTerminalOpen] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -70,7 +71,7 @@ export default function Home() {
         </div>
         <div className="flex gap-4 sm:gap-6 text-xs sm:text-sm font-semibold text-gray-400 whitespace-nowrap">
           <a href="#about" className="hover:text-green-400 transition-colors">./about</a>
-          <a href="#terminal" className="hover:text-green-400 transition-colors">./terminal</a>
+          <button onClick={() => setIsTerminalOpen(true)} className="hover:text-green-400 transition-colors cursor-pointer">./terminal</button>
           <a href="#skills" className="hover:text-green-400 transition-colors">./skills</a>
           <a href="#projects" className="hover:text-green-400 transition-colors">./projects</a>
           <a href="#training" className="hover:text-green-400 transition-colors">./training</a>
@@ -139,23 +140,6 @@ export default function Home() {
               </a>
             </div>
           </div>
-        </section>
-
-        {/* INTERACTIVE TERMINAL SECTION */}
-        <section id="terminal" className="space-y-8 scroll-mt-32">
-          <div className="flex items-center gap-4">
-            <h2 className="text-3xl font-bold text-white"><span className="text-green-500">#</span> Interactive_Shell</h2>
-            <div className="h-[1px] flex-1 bg-gradient-to-r from-green-500/50 to-transparent"></div>
-          </div>
-          
-          <motion.div 
-            initial={{ opacity: 0, y: 50 }} 
-            whileInView={{ opacity: 1, y: 0 }} 
-            viewport={{ once: true }}
-            className="w-full relative z-20"
-          >
-            <InteractiveTerminal />
-          </motion.div>
         </section>
 
         {/* SKILLS SECTION */}
@@ -386,6 +370,23 @@ export default function Home() {
         <p className="font-bold">sys.exit(0) <span className="text-green-500/50">| Designed with security in mind.</span></p>
         <p className="mt-2 text-green-500/30">© {new Date().getFullYear()} Ayushman Prajapati</p>
       </footer>
+
+      {/* Floating Terminal Button */}
+      {!isTerminalOpen && (
+        <button 
+          onClick={() => setIsTerminalOpen(true)}
+          className="fixed bottom-6 right-6 z-40 bg-[#0a0a0a] hover:bg-green-500/10 border border-green-500/50 p-4 rounded-full text-green-400 transition-all hover:shadow-[0_0_15px_rgba(34,197,94,0.4)] group overflow-hidden"
+          aria-label="Open Terminal"
+        >
+          <div className="absolute inset-0 bg-green-500/10 scale-0 group-hover:scale-100 transition-transform origin-center rounded-full"></div>
+          <Terminal className="w-6 h-6 relative z-10 group-hover:animate-pulse" />
+        </button>
+      )}
+
+      {/* Fullscreen Terminal Overlay */}
+      {isTerminalOpen && (
+        <InteractiveTerminal onClose={() => setIsTerminalOpen(false)} />
+      )}
     </div>
   );
 }
