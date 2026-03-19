@@ -23,6 +23,8 @@ import {
   Users,
   Brain
 } from "lucide-react";
+import MatrixRain from "./components/MatrixRain";
+import InteractiveTerminal from "./components/InteractiveTerminal";
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
@@ -52,7 +54,10 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#050505] text-gray-300 font-mono relative overflow-hidden selection:bg-green-500/30">
-      {/* Background Grid Pattern */}
+      {/* Animated Matrix Rain Background */}
+      <MatrixRain />
+      
+      {/* Fallback Grid Pattern */}
       <div className="absolute inset-0 z-0 opacity-10 pointer-events-none" 
            style={{ backgroundImage: 'radial-gradient(#22c55e 1px, transparent 1px)', backgroundSize: '30px 30px' }}>
       </div>
@@ -65,11 +70,10 @@ export default function Home() {
         </div>
         <div className="flex gap-4 sm:gap-6 text-xs sm:text-sm font-semibold text-gray-400 whitespace-nowrap">
           <a href="#about" className="hover:text-green-400 transition-colors">./about</a>
+          <a href="#terminal" className="hover:text-green-400 transition-colors">./terminal</a>
           <a href="#skills" className="hover:text-green-400 transition-colors">./skills</a>
           <a href="#projects" className="hover:text-green-400 transition-colors">./projects</a>
           <a href="#training" className="hover:text-green-400 transition-colors">./training</a>
-          <a href="#certs" className="hover:text-green-400 transition-colors">./certs</a>
-          <a href="#edu" className="hover:text-green-400 transition-colors">./edu</a>
         </div>
       </nav>
 
@@ -112,7 +116,7 @@ export default function Home() {
               </h2>
             </div>
 
-            <p className="text-gray-400 max-w-xl text-lg leading-relaxed">
+            <p className="text-gray-300 font-medium max-w-xl text-lg leading-relaxed bg-[#0a0a0a]/50 p-4 rounded-lg border border-gray-800 backdrop-blur-sm">
               Passionate about vulnerability research, penetration testing, and building Python-based security tools. Dedicated to securing systems, discovering vulnerabilities, and continuously expanding my technical arsenal.
             </p>
 
@@ -137,6 +141,23 @@ export default function Home() {
           </div>
         </section>
 
+        {/* INTERACTIVE TERMINAL SECTION */}
+        <section id="terminal" className="space-y-8">
+          <div className="flex items-center gap-4">
+            <h2 className="text-3xl font-bold text-white"><span className="text-green-500">#</span> Interactive_Shell</h2>
+            <div className="h-[1px] flex-1 bg-gradient-to-r from-green-500/50 to-transparent"></div>
+          </div>
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }} 
+            whileInView={{ opacity: 1, y: 0 }} 
+            viewport={{ once: true }}
+            className="w-full relative z-20"
+          >
+            <InteractiveTerminal />
+          </motion.div>
+        </section>
+
         {/* SKILLS SECTION */}
         <section id="skills" className="space-y-8">
           <div className="flex items-center gap-4">
@@ -146,7 +167,7 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 gap-8">
             {/* Languages */}
-            <div className="bg-[#111] border border-gray-800 p-6 rounded-xl hover:border-green-500/30 transition-colors">
+            <div className="bg-[#111]/80 backdrop-blur-sm border border-gray-800 p-6 rounded-xl hover:border-green-500/30 transition-colors">
               <h3 className="text-xl font-bold text-green-400 mb-4 flex items-center gap-2"><Code className="w-5 h-5" /> Languages</h3>
               <div className="flex flex-wrap gap-2">
                 {["Python", "C++", "Java", "Bash (Basics)"].map(skill => (
@@ -156,7 +177,7 @@ export default function Home() {
             </div>
 
             {/* Frameworks */}
-            <div className="bg-[#111] border border-gray-800 p-6 rounded-xl hover:border-green-500/30 transition-colors">
+            <div className="bg-[#111]/80 backdrop-blur-sm border border-gray-800 p-6 rounded-xl hover:border-green-500/30 transition-colors">
               <h3 className="text-xl font-bold text-green-400 mb-4 flex items-center gap-2"><Server className="w-5 h-5" /> Frameworks</h3>
               <div className="flex flex-wrap gap-2">
                 {["Metasploit", "Django"].map(skill => (
@@ -166,7 +187,7 @@ export default function Home() {
             </div>
 
             {/* Tools/Platforms */}
-            <div className="bg-[#111] border border-gray-800 p-6 rounded-xl hover:border-green-500/30 transition-colors">
+            <div className="bg-[#111]/80 backdrop-blur-sm border border-gray-800 p-6 rounded-xl hover:border-green-500/30 transition-colors">
               <h3 className="text-xl font-bold text-green-400 mb-4 flex items-center gap-2"><Terminal className="w-5 h-5" /> Tools & Platforms</h3>
               <div className="flex flex-wrap gap-2">
                 {["Nmap", "Wireshark", "Burp Suite", "Kali Linux"].map(skill => (
@@ -176,7 +197,7 @@ export default function Home() {
             </div>
 
             {/* Soft Skills */}
-            <div className="bg-[#111] border border-gray-800 p-6 rounded-xl hover:border-green-500/30 transition-colors">
+            <div className="bg-[#111]/80 backdrop-blur-sm border border-gray-800 p-6 rounded-xl hover:border-green-500/30 transition-colors">
               <h3 className="text-xl font-bold text-green-400 mb-4 flex items-center gap-2"><Brain className="w-5 h-5" /> Soft Skills</h3>
               <div className="flex flex-wrap gap-2">
                 {["Analytical Thinking", "Collaborative Teamwork", "Fast Learner"].map(skill => (
@@ -200,7 +221,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-[#111] rounded-xl overflow-hidden border border-gray-800 flex flex-col hover:border-green-500/50 transition-all group hover:shadow-[0_0_20px_rgba(34,197,94,0.1)]"
+              className="bg-[#111]/80 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 flex flex-col hover:border-green-500/50 transition-all group hover:shadow-[0_0_20px_rgba(34,197,94,0.1)]"
             >
               <div className="relative h-48 overflow-hidden bg-black flex items-center justify-center shrink-0">
                 <img src="/obscura.png" alt="Obscura Tool" className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
@@ -222,13 +243,11 @@ export default function Home() {
                   <p className="flex items-start gap-2"><ChevronRight className="w-4 h-4 text-green-500 mt-0.5 shrink-0"/> Implemented a cross-platform steganography tool that conceals secret text or arbitrary files within image, audio, and video media using LSB encoding.</p>
                   <p className="flex items-start gap-2"><ChevronRight className="w-4 h-4 text-green-500 mt-0.5 shrink-0"/> Architected a modular system with independent media handlers and an intuitive interactive CLI.</p>
                   <p className="flex items-start gap-2"><ChevronRight className="w-4 h-4 text-green-500 mt-0.5 shrink-0"/> Applied the tool to real-world security contexts such as CTF challenges, covert data storage, and privacy-oriented communication.</p>
-                  <p className="flex items-start gap-2"><ChevronRight className="w-4 h-4 text-green-500 mt-0.5 shrink-0"/> Established a CLI-driven workflow to support controlled embedding and extraction of hidden payloads.</p>
                 </div>
                 <div className="flex flex-wrap gap-2 pt-4 mt-auto border-t border-gray-800">
                   <span className="text-xs text-green-500 font-bold">TECH:</span>
                   <span className="px-2 py-0.5 text-xs bg-gray-900 border border-gray-700 text-gray-300 rounded">Python</span>
                   <span className="px-2 py-0.5 text-xs bg-gray-900 border border-gray-700 text-gray-300 rounded">LSB Steganography</span>
-                  <span className="px-2 py-0.5 text-xs bg-gray-900 border border-gray-700 text-gray-300 rounded">Binary Data</span>
                   <span className="px-2 py-0.5 text-xs bg-gray-900 border border-gray-700 text-gray-300 rounded">CLI</span>
                 </div>
               </div>
@@ -239,7 +258,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-[#111] rounded-xl overflow-hidden border border-gray-800 flex flex-col hover:border-green-500/50 transition-all group hover:shadow-[0_0_20px_rgba(34,197,94,0.1)]"
+              className="bg-[#111]/80 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 flex flex-col hover:border-green-500/50 transition-all group hover:shadow-[0_0_20px_rgba(34,197,94,0.1)]"
             >
               <div className="relative h-48 overflow-hidden bg-black flex items-center justify-center shrink-0">
                 <img src="/watchdog.png" alt="WatchDog Tool" className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
@@ -261,7 +280,6 @@ export default function Home() {
                   <p className="flex items-start gap-2"><ChevronRight className="w-4 h-4 text-green-500 mt-0.5 shrink-0"/> Developed an educational web security scanner evaluating target websites for common vulnerabilities aligned with OWASP Top 10.</p>
                   <p className="flex items-start gap-2"><ChevronRight className="w-4 h-4 text-green-500 mt-0.5 shrink-0"/> Structured scan results to highlight potentially vulnerable endpoints, enabling targeted manual verification.</p>
                   <p className="flex items-start gap-2"><ChevronRight className="w-4 h-4 text-green-500 mt-0.5 shrink-0"/> Tested the tool on intentionally vulnerable platforms (DVWA, vulnweb.com) demonstrating practical web penetration testing skills.</p>
-                  <p className="flex items-start gap-2"><ChevronRight className="w-4 h-4 text-green-500 mt-0.5 shrink-0"/> Gained insight into how automated scanners complement manual penetration testing, handling false positives and limitations.</p>
                 </div>
                 <div className="flex flex-wrap gap-2 pt-4 mt-auto border-t border-gray-800">
                   <span className="text-xs text-green-500 font-bold">TECH:</span>
@@ -275,13 +293,13 @@ export default function Home() {
         </section>
 
         {/* TRAINING SECTION */}
-        <section id="training" className="space-y-8">
+        <section id="training" className="space-y-8 z-20 relative">
           <div className="flex items-center gap-4">
             <h2 className="text-3xl font-bold text-white"><span className="text-green-500">#</span> Training_Logs</h2>
             <div className="h-[1px] flex-1 bg-gradient-to-r from-green-500/50 to-transparent"></div>
           </div>
 
-          <div className="bg-[#111] rounded-xl border border-gray-800 p-6 md:p-8 hover:border-green-500/30 transition-all">
+          <div className="bg-[#111]/80 backdrop-blur-sm rounded-xl border border-gray-800 p-6 md:p-8 hover:border-green-500/30 transition-all">
             <div className="flex flex-col md:flex-row md:justify-between md:items-end mb-6 border-b border-gray-800 pb-4">
               <div>
                 <h3 className="text-2xl font-bold text-white flex items-center gap-2">
@@ -289,22 +307,21 @@ export default function Home() {
                 </h3>
                 <p className="text-lg text-green-400 mt-1">Techvanto Academy</p>
               </div>
-              <span className="text-gray-500 flex items-center gap-2 mt-4 md:mt-0 font-mono text-sm">
+              <span className="text-gray-400 flex items-center gap-2 mt-4 md:mt-0 font-mono text-sm">
                 <Calendar className="w-4 h-4" /> June 2025 – July 2025
               </span>
             </div>
             
-            <div className="text-gray-400 md:text-lg space-y-3">
+            <div className="text-gray-300 md:text-lg space-y-3 font-mono text-sm leading-relaxed border-l-2 border-green-500/30 pl-4 bg-[#0a0a0a]/50 py-4 pr-4 rounded">
               <p className="flex items-start gap-3"><ChevronRight className="w-5 h-5 text-green-500 mt-0.5 shrink-0"/> Studied major cyber threats and attack vectors including malware, phishing, SQL injection, XSS, and DoS/DDoS attacks.</p>
               <p className="flex items-start gap-3"><ChevronRight className="w-5 h-5 text-green-500 mt-0.5 shrink-0"/> Acquired hands-on experience with penetration testing tools and techniques, such as Nmap, Metasploit, Nessus/OpenVAS, WHOIS, DNS enumeration, and Wireshark traffic analysis.</p>
               <p className="flex items-start gap-3"><ChevronRight className="w-5 h-5 text-green-500 mt-0.5 shrink-0"/> Learned secure coding and web security principles such as OWASP Top 10, input validation, session management, CSRF protection, and SQL injection prevention.</p>
-              <p className="flex items-start gap-3"><ChevronRight className="w-5 h-5 text-green-500 mt-0.5 shrink-0"/> Understood core network security fundamentals and incident response practices, including firewalls, IDS/IPS, VPNs, segmentation, containment, eradication, and recovery procedures.</p>
             </div>
           </div>
         </section>
 
         {/* CERTIFICATES & ACHIEVEMENTS SECTION */}
-        <section id="certs" className="space-y-8">
+        <section id="certs" className="space-y-8 z-20 relative">
           <div className="flex items-center gap-4">
             <h2 className="text-3xl font-bold text-white"><span className="text-green-500">#</span> Credentials_And_Milestones</h2>
             <div className="h-[1px] flex-1 bg-gradient-to-r from-green-500/50 to-transparent"></div>
@@ -312,7 +329,7 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 gap-8">
             {/* Certifications */}
-            <div className="bg-[#111] p-6 rounded-xl border border-gray-800">
+            <div className="bg-[#111]/80 backdrop-blur-sm p-6 rounded-xl border border-gray-800">
               <h3 className="text-2xl text-green-400 font-bold flex items-center gap-2 mb-6">
                 <Award className="w-6 h-6" /> Certifications
               </h3>
@@ -322,7 +339,7 @@ export default function Home() {
                   { name: "Ethical Hacking Masterclass", org: "Infosys", date: "July 2025", img: "/infosys.png" },
                   { name: "The Bits and Bytes of Computer Networking", org: "Google (Coursera)", date: "Sep 2024", img: "/coursera.png" }
                 ].map((cert, idx) => (
-                  <div key={idx} className="flex gap-4 p-4 bg-[#0a0a0a] border border-gray-800 rounded-lg hover:border-green-500/30 transition-colors">
+                  <div key={idx} className="flex gap-4 p-4 bg-[#0a0a0a]/80 border border-gray-800 rounded-lg hover:border-green-500/30 transition-colors">
                     <div className="w-16 h-12 bg-black rounded overflow-hidden flex items-center justify-center shrink-0 border border-gray-700 p-1">
                       <img src={cert.img} alt={cert.org} className="max-h-full max-w-full object-contain" />
                     </div>
@@ -337,12 +354,12 @@ export default function Home() {
             </div>
 
             {/* Achievements */}
-            <div className="bg-[#111] p-6 rounded-xl border border-gray-800">
+            <div className="bg-[#111]/80 backdrop-blur-sm p-6 rounded-xl border border-gray-800">
               <h3 className="text-2xl text-green-400 font-bold flex items-center gap-2 mb-6">
                 <Shield className="w-6 h-6" /> Achievements
               </h3>
               <div className="space-y-6">
-                <div className="bg-[#0a0a0a] p-5 border border-gray-800 rounded-lg border-l-2 border-l-green-500">
+                <div className="bg-[#0a0a0a]/80 p-5 border border-gray-800 rounded-lg border-l-2 border-l-green-500">
                   <div className="flex justify-between items-start mb-2">
                     <h4 className="font-bold text-white">4th Rank in CTF Competition</h4>
                     <span className="text-xs text-gray-500 font-mono">Mar 2025</span>
@@ -350,7 +367,7 @@ export default function Home() {
                   <p className="text-sm text-gray-400">Ranked 4th out of 100 teams (4 participants per team) in a highly competitive cybersecurity Capture the Flag event.</p>
                 </div>
                 
-                <div className="bg-[#0a0a0a] p-5 border border-gray-800 rounded-lg border-l-2 border-l-blue-500">
+                <div className="bg-[#0a0a0a]/80 p-5 border border-gray-800 rounded-lg border-l-2 border-l-blue-500">
                   <div className="flex justify-between items-start mb-2">
                     <h4 className="font-bold text-white">365+ Day Learning Streak</h4>
                     <span className="text-xs text-gray-500 font-mono">Jan 2025 - Present</span>
@@ -362,66 +379,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* EDUCATION SECTION */}
-        <section id="edu" className="space-y-8">
-          <div className="flex items-center gap-4">
-            <h2 className="text-3xl font-bold text-white"><span className="text-green-500">#</span> Education</h2>
-            <div className="h-[1px] flex-1 bg-gradient-to-r from-green-500/50 to-transparent"></div>
-          </div>
-
-          <div className="relative pl-8 border-l border-gray-800 space-y-10 ml-4 before:content-[''] before:absolute before:inset-0 before:bg-gradient-to-b before:from-green-500/20 before:to-transparent before:-z-10 before:w-px before:-left-px">
-            
-            <div className="relative">
-              <span className="absolute -left-[41px] w-5 h-5 rounded-full bg-green-500/20 border-2 border-green-500 flex items-center justify-center">
-                <span className="w-1.5 h-1.5 bg-green-500 rounded-full"></span>
-              </span>
-              <div className="bg-[#111] p-6 border border-gray-800 rounded-xl hover:border-green-500/30 transition-all">
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
-                  <h4 className="font-bold text-white text-xl">Bachelor of Technology - CSE</h4>
-                  <span className="text-green-500 text-sm font-mono mt-1 sm:mt-0 bg-green-500/10 px-3 py-1 rounded">Aug 2023 - Present</span>
-                </div>
-                <p className="text-gray-400 text-lg mb-2 flex items-center gap-2"><BookOpen className="w-4 h-4"/> Lovely Professional University (Punjab, India)</p>
-                <div className="inline-block px-3 py-1 bg-gray-900 border border-gray-700 text-green-400 font-bold text-sm rounded mt-2">
-                  CGPA: 8.7
-                </div>
-              </div>
-            </div>
-
-            <div className="relative opacity-80 hover:opacity-100 transition-opacity">
-              <span className="absolute -left-[41px] w-5 h-5 rounded-full bg-gray-900 border-2 border-gray-600"></span>
-              <div className="bg-[#0a0a0a] p-6 border border-gray-800 rounded-xl">
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
-                  <h4 className="font-bold text-white text-lg">Intermediate</h4>
-                  <span className="text-gray-500 text-sm font-mono mt-1 sm:mt-0">Apr 2022 – Mar 2023</span>
-                </div>
-                <p className="text-gray-400 mb-2">RPS PUBLIC SCHOOL (Dharuhera, Haryana)</p>
-                <div className="inline-block px-3 py-1 bg-gray-900 border border-gray-700 text-gray-300 text-sm rounded">
-                  Percentage: 92%
-                </div>
-              </div>
-            </div>
-
-            <div className="relative opacity-60 hover:opacity-100 transition-opacity">
-              <span className="absolute -left-[41px] w-5 h-5 rounded-full bg-gray-900 border-2 border-gray-600"></span>
-              <div className="bg-[#0a0a0a] p-6 border border-gray-800 rounded-xl">
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
-                  <h4 className="font-bold text-white text-lg">Matriculation</h4>
-                  <span className="text-gray-500 text-sm font-mono mt-1 sm:mt-0">Apr 2020 – Mar 2021</span>
-                </div>
-                <p className="text-gray-400 mb-2">RPS PUBLIC SCHOOL (Dharuhera, Haryana)</p>
-                <div className="inline-block px-3 py-1 bg-gray-900 border border-gray-700 text-gray-300 text-sm rounded">
-                  Percentage: 86%
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </section>
-
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-green-500/20 bg-[#050505] py-8 text-center text-sm text-gray-600 mt-20">
+      <footer className="border-t border-green-500/20 bg-[#050505]/90 backdrop-blur-md py-8 text-center text-sm text-gray-600 mt-20 relative z-20">
         <p className="font-bold">sys.exit(0) <span className="text-green-500/50">| Designed with security in mind.</span></p>
         <p className="mt-2 text-green-500/30">© {new Date().getFullYear()} Ayushman Prajapati</p>
       </footer>
