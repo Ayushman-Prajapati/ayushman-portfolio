@@ -23,7 +23,7 @@ import {
   Users,
   Brain
 } from "lucide-react";
-import MatrixRain from "./components/MatrixRain";
+import NetworkNodes from "./components/NetworkNodes";
 import InteractiveTerminal from "./components/InteractiveTerminal";
 
 export default function Home() {
@@ -54,8 +54,8 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#050505] text-gray-300 font-mono relative overflow-hidden selection:bg-green-500/30">
-      {/* Animated Matrix Rain Background */}
-      <MatrixRain />
+      {/* Animated Network Nodes Background */}
+      <NetworkNodes />
       
       {/* Fallback Grid Pattern */}
       <div className="absolute inset-0 z-0 opacity-10 pointer-events-none" 
@@ -79,7 +79,7 @@ export default function Home() {
 
       <main className="relative z-10 pt-32 pb-20 px-6 max-w-6xl mx-auto flex flex-col gap-32">
         {/* HERO SECTION */}
-        <section id="about" className="flex flex-col md:flex-row gap-12 items-center min-h-[70vh]">
+        <section id="about" className="flex flex-col md:flex-row gap-12 items-center min-h-[70vh] scroll-mt-32">
           <motion.div 
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -142,7 +142,7 @@ export default function Home() {
         </section>
 
         {/* INTERACTIVE TERMINAL SECTION */}
-        <section id="terminal" className="space-y-8">
+        <section id="terminal" className="space-y-8 scroll-mt-32">
           <div className="flex items-center gap-4">
             <h2 className="text-3xl font-bold text-white"><span className="text-green-500">#</span> Interactive_Shell</h2>
             <div className="h-[1px] flex-1 bg-gradient-to-r from-green-500/50 to-transparent"></div>
@@ -159,7 +159,7 @@ export default function Home() {
         </section>
 
         {/* SKILLS SECTION */}
-        <section id="skills" className="space-y-8">
+        <section id="skills" className="space-y-8 scroll-mt-32">
           <div className="flex items-center gap-4">
             <h2 className="text-3xl font-bold text-white"><span className="text-green-500">#</span> Technical_Skills</h2>
             <div className="h-[1px] flex-1 bg-gradient-to-r from-green-500/50 to-transparent"></div>
@@ -209,7 +209,7 @@ export default function Home() {
         </section>
 
         {/* PROJECTS SECTION */}
-        <section id="projects" className="space-y-8">
+        <section id="projects" className="space-y-8 scroll-mt-32">
           <div className="flex items-center gap-4">
             <h2 className="text-3xl font-bold text-white"><span className="text-green-500">#</span> Deployed_Operations</h2>
             <div className="h-[1px] flex-1 bg-gradient-to-r from-green-500/50 to-transparent"></div>
@@ -293,7 +293,7 @@ export default function Home() {
         </section>
 
         {/* TRAINING SECTION */}
-        <section id="training" className="space-y-8 z-20 relative">
+        <section id="training" className="space-y-8 z-20 relative scroll-mt-32">
           <div className="flex items-center gap-4">
             <h2 className="text-3xl font-bold text-white"><span className="text-green-500">#</span> Training_Logs</h2>
             <div className="h-[1px] flex-1 bg-gradient-to-r from-green-500/50 to-transparent"></div>
@@ -321,7 +321,7 @@ export default function Home() {
         </section>
 
         {/* CERTIFICATES & ACHIEVEMENTS SECTION */}
-        <section id="certs" className="space-y-8 z-20 relative">
+        <section id="certs" className="space-y-8 z-20 relative scroll-mt-32">
           <div className="flex items-center gap-4">
             <h2 className="text-3xl font-bold text-white"><span className="text-green-500">#</span> Credentials_And_Milestones</h2>
             <div className="h-[1px] flex-1 bg-gradient-to-r from-green-500/50 to-transparent"></div>

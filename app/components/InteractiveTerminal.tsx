@@ -13,10 +13,12 @@ const InteractiveTerminal = () => {
     { type: 'output', text: 'Welcome to ayushman.dev secure terminal. Type "help" or "ayushman --help" to view available commands.' }
   ]);
   const [input, setInput] = useState('');
-  const bottomRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (containerRef.current) {
+        containerRef.current.scrollTop = containerRef.current.scrollHeight;
+    }
   }, [logs]);
 
   const handleCommand = (cmd: string) => {
@@ -84,7 +86,7 @@ Available Commands:
         </div>
       </div>
       
-      <div className="p-4 h-[300px] overflow-y-auto bg-black/50 text-green-400 font-mono flex flex-col gap-2">
+      <div ref={containerRef} className="p-4 h-[300px] overflow-y-auto bg-black/50 text-green-400 font-mono flex flex-col gap-2">
         {logs.map((log, index) => (
           <div key={index} className={log.type === 'error' ? 'text-red-400' : 'text-green-400'}>
             {log.type === 'input' ? (
@@ -106,7 +108,6 @@ Available Commands:
             autoFocus
           />
         </form>
-        <div ref={bottomRef} />
       </div>
     </div>
   );
