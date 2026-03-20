@@ -87,12 +87,20 @@ export default function Home() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="relative shrink-0"
           >
-            <div className="absolute -inset-1 bg-green-500 rounded-full blur opacity-30 animate-pulse"></div>
-            <img
-              src="/profile.jpg"
-              alt="Ayushman Prajapati"
-              className="relative w-48 h-48 md:w-64 md:h-64 object-cover rounded-full border-2 border-green-500 shadow-[0_0_20px_rgba(34,197,94,0.4)]"
-            />
+            <div className="relative group">
+              <div className="absolute -inset-1.5 bg-green-500 rounded-full blur-md opacity-30 group-hover:opacity-60 transition-opacity duration-500 animate-pulse"></div>
+              <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full border-2 border-green-500/50 p-1 bg-[#050505] overflow-hidden shadow-[0_0_30px_rgba(34,197,94,0.3)]">
+                <img
+                  src="/profile.jpg"
+                  alt="Ayushman Prajapati"
+                  className="w-full h-full object-cover rounded-full hover:scale-110 transition-transform duration-700"
+                />
+              </div>
+              {/* Scanline overlay for the photo */}
+              <div className="absolute inset-0 rounded-full opacity-10 pointer-events-none overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-green-500 to-transparent h-12 w-full animate-scanline"></div>
+              </div>
+            </div>
           </motion.div>
 
           <div className="flex-1 space-y-6">
