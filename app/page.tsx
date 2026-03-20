@@ -93,7 +93,7 @@ export default function Home() {
                 <img
                   src="/profile.jpg"
                   alt="Ayushman Prajapati"
-                  className="w-full h-full object-cover rounded-full hover:scale-110 transition-transform duration-700"
+                  className="w-full h-full object-cover object-top rounded-full hover:scale-105 transition-transform duration-700 scale-[0.95]"
                 />
               </div>
               {/* Scanline overlay for the photo */}
