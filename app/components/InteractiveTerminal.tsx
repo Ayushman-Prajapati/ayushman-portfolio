@@ -14,7 +14,7 @@ interface InteractiveTerminalProps {
 
 const InteractiveTerminal = ({ onClose }: InteractiveTerminalProps) => {
   const [logs, setLogs] = useState<Log[]>([
-    { type: 'output', text: 'Welcome to ayushman.dev secure terminal. Type "help" or "ayushman --help" to view available commands.' }
+    { type: 'output', text: 'Welcome to AP(Ayushman Prajapati) secure terminal. Type "help" or "ayushman --help" to view available commands.' }
   ]);
   const [input, setInput] = useState('');
   const containerRef = useRef<HTMLDivElement>(null);
@@ -81,7 +81,7 @@ Available Commands:
 
     setLogs(prev => [
       ...prev,
-      { type: 'input', text: `visitor@ayushman.dev:~$ ${cmd}` },
+      { type: 'input', text: `visitor@ayushman.prajapati:~$ ${cmd}` },
       { type: responseType, text: responseText }
     ]);
   };
@@ -104,7 +104,7 @@ Available Commands:
         </div>
         <div className="flex-1 text-center text-gray-400 text-sm flex items-center justify-center gap-2">
           <TerminalIcon className="w-4 h-4" />
-          <span>visitor@ayushman.dev : ~</span>
+          <span>visitor@ayushman.prajapati : ~</span>
         </div>
         <div className="w-16 flex justify-end">
           <button onClick={onClose} className="text-gray-500 hover:text-white transition-colors">
@@ -131,7 +131,7 @@ Available Commands:
           </div>
         ))}
         <form onSubmit={onSubmit} className="flex gap-2 mt-2">
-          <span className="text-green-500 shrink-0">visitor@ayushman.dev:~$</span>
+          <span className="text-green-500 shrink-0">visitor@ayushman.prajapati:~$</span>
           <input
             id="terminal-input"
             type="text"
