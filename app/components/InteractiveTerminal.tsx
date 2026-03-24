@@ -63,7 +63,7 @@ Shortcut: You can also use 'whoami', 'skills', etc. directly.
     const getWhoami = () => `Ayushman Prajapati\nCybersecurity Enthusiast | Security Researcher\nCurrently securing systems and discovering zero-days.`;
     const getSkills = () => `Languages: Python, C++, Java, Bash\nFrameworks: Metasploit, Django\nTools: Nmap, Wireshark, Burp Suite, Kali Linux`;
     const getProjects = () => `1. Obscura - Steganography & Data Hiding Tool (LSB Encoding)\n2. WatchDog - Web Vulnerability Scanner (OWASP Top 10)`;
-    const getContact = () => `Email: ayushmanprajapati@gmail.com\nMobile: +91-7976937002\nGitHub: https://github.com/Ayushman-Prajapati\nLinkedIn: https://linkedin.com/in/ayushman--prajapati/`;
+    const getContact = () => `Email: ayushmanprajapati@gmail.com\nMobile: +91-7976937002\nGitHub: https://github.com/Ayushman-Prajapati\nLinkedIn: https://linkedin.com/in/ayushman--prajapati/\nResume: https://drive.google.com/file/d/1_x6zQclT9U_SbX818XxsHqrfvjXEHc9k/view?usp=sharing`;
 
     if (mainCmd === 'clear') {
       setLogs([]);

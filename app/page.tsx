@@ -21,7 +21,8 @@ import {
   Calendar,
   Briefcase,
   Users,
-  Brain
+  Brain,
+  Download
 } from "lucide-react";
 import NetworkNodes from "./components/NetworkNodes";
 import InteractiveTerminal from "./components/InteractiveTerminal";
@@ -94,6 +95,7 @@ export default function Home() {
             <a href="#training" className="hover:text-green-400 transition-colors">./training</a>
             <a href="#certs" className="hover:text-green-400 transition-colors">./certs</a>
             <a href="#achievements" className="hover:text-green-400 transition-colors">./achievements</a>
+            <a href="#connect" className="hover:text-green-400 transition-colors">./connect</a>
           </div>
         </nav>
 
@@ -541,6 +543,93 @@ export default function Home() {
                   </div>
                 </div>
               </motion.div>
+            </div>
+          </section>
+
+          {/* CONNECT SECTION */}
+          <section id="connect" className="space-y-12 z-20 relative scroll-mt-32">
+            <div className="flex items-center gap-4">
+              <h2 className="text-3xl font-bold text-white"><span className="text-green-500">#</span> Establish_Connection</h2>
+              <div className="h-[1px] flex-1 bg-gradient-to-r from-green-500/50 to-transparent"></div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+              <div className="space-y-6">
+                <div className="bg-[#111]/80 backdrop-blur-sm border border-gray-800 p-8 rounded-2xl hover:border-green-500/30 transition-all group">
+                  <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+                    <Mail className="w-6 h-6 text-green-500" /> Get In Touch
+                  </h3>
+                  <p className="text-gray-400 mb-8 leading-relaxed font-mono text-sm md:text-base">
+                    I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions. Feel free to reach out through any of the channels below.
+                  </p>
+                  
+                  <div className="grid gap-4">
+                    <a href="mailto:ayushmanprajapati@gmail.com" className="flex items-center gap-4 p-4 bg-gray-950/50 border border-gray-800/50 rounded-xl hover:border-green-500/50 transition-all hover:bg-green-500/5 group/item">
+                      <div className="w-12 h-12 rounded-full bg-green-500/10 flex items-center justify-center text-green-500 group-hover/item:bg-green-500 group-hover/item:text-black transition-all">
+                        <Mail className="w-6 h-6" />
+                      </div>
+                      <div>
+                        <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-0.5">Direct Email</p>
+                        <p className="text-gray-300 font-medium group-hover/item:text-white transition-colors">ayushmanprajapati@gmail.com</p>
+                      </div>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/ayushman--prajapati/" target="_blank" rel="noreferrer" className="flex items-center gap-4 p-4 bg-gray-950/50 border border-gray-800/50 rounded-xl hover:border-blue-500/50 transition-all hover:bg-blue-500/5 group/item">
+                      <div className="w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-400 group-hover/item:bg-blue-500 group-hover/item:text-white transition-all">
+                        <Linkedin className="w-6 h-6" />
+                      </div>
+                      <div>
+                        <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-0.5">LinkedIn Profile</p>
+                        <p className="text-gray-300 font-medium group-hover/item:text-white transition-colors">ayushman--prajapati</p>
+                      </div>
+                    </a>
+
+                    <a href="tel:+917976937002" className="flex items-center gap-4 p-4 bg-gray-950/50 border border-gray-800/50 rounded-xl hover:border-green-500/50 transition-all hover:bg-green-500/5 group/item">
+                      <div className="w-12 h-12 rounded-full bg-green-500/10 flex items-center justify-center text-green-500 group-hover/item:bg-green-500 group-hover/item:text-black transition-all">
+                        <Phone className="w-6 h-6" />
+                      </div>
+                      <div>
+                        <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-0.5">Mobile Contact</p>
+                        <p className="text-gray-300 font-medium group-hover/item:text-white transition-colors">+91 7976937002</p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-col justify-center items-center p-8 bg-green-500/5 border border-green-500/20 rounded-2xl relative overflow-hidden group">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-green-500/10 blur-[50px] rounded-full -mr-16 -mt-16 animate-pulse"></div>
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-green-500/10 blur-[50px] rounded-full -ml-16 -mb-16 animate-pulse"></div>
+                
+                <div className="relative z-10 text-center space-y-8">
+                  <div className="space-y-4">
+                    <div className="w-20 h-20 bg-green-500/20 rounded-2xl flex items-center justify-center mx-auto border border-green-500/30 transform group-hover:rotate-12 transition-transform duration-500">
+                      <Download className="w-10 h-10 text-green-500" />
+                    </div>
+                    <div className="space-y-2">
+                      <h3 className="text-2xl font-bold text-white uppercase tracking-tight">Access Credentials</h3>
+                      <p className="text-gray-400 font-mono text-sm px-4">Download the latest version of my professional summary (resume.pdf)</p>
+                    </div>
+                  </div>
+
+                  <a 
+                    href="https://drive.google.com/file/d/1_x6zQclT9U_SbX818XxsHqrfvjXEHc9k/view?usp=sharing" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-3 px-10 py-5 bg-green-500 hover:bg-green-400 text-black font-black rounded-xl transition-all hover:shadow-[0_0_30px_rgba(34,197,94,0.5)] active:scale-95 group/btn overflow-hidden relative"
+                  >
+                    <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-500 skew-x-12"></div>
+                    <Download className="w-6 h-6 group-hover/btn:animate-bounce relative z-10" />
+                    <span className="relative z-10 tracking-widest">DOWNLOAD RESUME</span>
+                  </a>
+                  
+                  <div className="pt-4 flex items-center justify-center gap-4 text-xs font-bold text-green-500/50 uppercase tracking-[0.2em]">
+                    <span className="w-8 h-[1px] bg-green-500/20"></span>
+                    VERIFIED & SECURE
+                    <span className="w-8 h-[1px] bg-green-500/20"></span>
+                  </div>
+                </div>
+              </div>
             </div>
           </section>
         </main>
