@@ -36,46 +36,76 @@ const InteractiveTerminal = ({ onClose }: InteractiveTerminalProps) => {
   }, [onClose]);
 
   const handleCommand = (cmd: string) => {
-    const trimmed = cmd.trim().toLowerCase();
+    const trimmed = cmd.trim();
+    if (!trimmed) return;
+
+    const parts = trimmed.split(/\s+/);
+    const mainCmd = parts[0].toLowerCase();
+    const args = parts.slice(1);
+
     let responseText = '';
     let responseType: 'output' | 'error' = 'output';
 
-    if (!trimmed) return;
+    const showHelp = () => `
+Available Commands:
+- ayushman -h, --help    : Show this help menu
+- ayushman -w, --whoami  : Fetch identity information
+- ayushman -s, --skills  : Display active skill modules
+- ayushman -p, --projects: List deployed operations
+- ayushman -c, --contact : Show connection endpoints
+- clear                  : Clear terminal output
+- exit                   : Close the terminal session
+- sudo rm -rf /          : [ACCESS DENIED]
 
-    if (trimmed === 'clear') {
+Shortcut: You can also use 'whoami', 'skills', etc. directly.
+`;
+
+    const getWhoami = () => `Ayushman Prajapati\nCybersecurity Enthusiast | Security Researcher\nCurrently securing systems and discovering zero-days.`;
+    const getSkills = () => `Languages: Python, C++, Java, Bash\nFrameworks: Metasploit, Django\nTools: Nmap, Wireshark, Burp Suite, Kali Linux`;
+    const getProjects = () => `1. Obscura - Steganography & Data Hiding Tool (LSB Encoding)\n2. WatchDog - Web Vulnerability Scanner (OWASP Top 10)`;
+    const getContact = () => `Email: ayushmanprajapati@gmail.com\nMobile: +91-7976937002\nGitHub: https://github.com/Ayushman-Prajapati\nLinkedIn: https://linkedin.com/in/ayushman--prajapati/`;
+
+    if (mainCmd === 'clear') {
       setLogs([]);
       return;
     }
 
-    if (trimmed === 'exit' && onClose) {
+    if (mainCmd === 'exit' && onClose) {
       onClose();
       return;
     }
 
-    if (trimmed === 'help' || trimmed === '--help' || trimmed === 'ayushman --help') {
-      responseText = `
-Available Commands:
-- whoami       : Fetch identity information
-- skills       : Display active skill modules
-- projects     : List deployed operations
-- contact      : Show connection endpoints
-- clear        : Clear terminal output
-- exit         : Close the terminal session
-- sudo rm -rf /: [ACCESS DENIED]
-`;
-    } else if (trimmed === 'whoami') {
-      responseText = `Ayushman Prajapati\nCybersecurity Enthusiast | Security Researcher\nCurrently securing systems and discovering zero-days.`;
-    } else if (trimmed === 'skills') {
-      responseText = `Languages: Python, C++, Java, Bash\nFrameworks: Metasploit, Django\nTools: Nmap, Wireshark, Burp Suite, Kali Linux`;
-    } else if (trimmed === 'projects') {
-      responseText = `1. Obscura - Steganography & Data Hiding Tool (LSB Encoding)\n2. WatchDog - Web Vulnerability Scanner (OWASP Top 10)`;
-    } else if (trimmed === 'contact') {
-      responseText = `Email: ayushmanprajapati@gmail.com\nMobile: +91-7976937002\nGitHub: https://github.com/Ayushman-Prajapati\nLinkedIn: https://linkedin.com/in/ayushman--prajapati/`;
-    } else if (trimmed === 'sudo rm -rf /' || trimmed === 'sudo rm -rf /*') {
-        responseText = `ayushman is not in the sudoers file. This incident will be reported.`;
+    if (mainCmd === 'ayushman') {
+      const flag = args[0]?.toLowerCase();
+      if (!flag || flag === '-h' || flag === '--help') {
+        responseText = showHelp();
+      } else if (flag === '-w' || flag === '--whoami') {
+        responseText = getWhoami();
+      } else if (flag === '-s' || flag === '--skills') {
+        responseText = getSkills();
+      } else if (flag === '-p' || flag === '--projects') {
+        responseText = getProjects();
+      } else if (flag === '-c' || flag === '--contact') {
+        responseText = getContact();
+      } else {
+        responseText = `Unknown flag: ${flag}. Type "ayushman --help" for available flags.`;
         responseType = 'error';
+      }
+    } else if (mainCmd === 'help' || mainCmd === '--help') {
+      responseText = showHelp();
+    } else if (mainCmd === 'whoami') {
+      responseText = getWhoami();
+    } else if (mainCmd === 'skills') {
+      responseText = getSkills();
+    } else if (mainCmd === 'projects') {
+      responseText = getProjects();
+    } else if (mainCmd === 'contact') {
+      responseText = getContact();
+    } else if (trimmed.toLowerCase().startsWith('sudo rm -rf')) {
+      responseText = `ayushman is not in the sudoers file. This incident will be reported.`;
+      responseType = 'error';
     } else {
-      responseText = `Command not found: ${trimmed}. Type "help" for a list of commands.`;
+      responseText = `Command not found: ${mainCmd}. Type "help" for a list of commands.`;
       responseType = 'error';
     }
 

@@ -305,6 +305,26 @@ export default function Home() {
             </div>
 
             <div className="bg-[#111]/80 backdrop-blur-sm rounded-xl border border-gray-800 p-6 md:p-8 hover:border-green-500/30 transition-all">
+              {/* Training Section Image */}
+              <div className="relative h-64 md:h-80 w-full mb-8 overflow-hidden rounded-xl border border-gray-800 group/img">
+                <img 
+                  src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=2070" 
+                  alt="Cybersecurity Training" 
+                  className="w-full h-full object-cover opacity-60 group-hover/img:opacity-80 transition-opacity duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#111] via-transparent to-transparent"></div>
+                <div className="absolute bottom-4 left-4">
+                  <div className="flex items-center gap-2 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-green-500/30">
+                    <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                    <span className="text-[10px] md:text-xs font-bold text-green-400 uppercase tracking-widest font-mono">Training Module Active</span>
+                  </div>
+                </div>
+                {/* Decorative scanning line */}
+                <div className="absolute inset-0 opacity-20 pointer-events-none overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-green-500 to-transparent h-1 w-full animate-scanline"></div>
+                </div>
+              </div>
+
               <div className="flex flex-col md:flex-row md:justify-between md:items-end mb-6 border-b border-gray-800 pb-4">
                 <div>
                   <h3 className="text-2xl font-bold text-white flex items-center gap-2">
