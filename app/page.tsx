@@ -75,6 +75,8 @@ export default function Home() {
           <a href="#skills" className="hover:text-green-400 transition-colors">./skills</a>
           <a href="#projects" className="hover:text-green-400 transition-colors">./projects</a>
           <a href="#training" className="hover:text-green-400 transition-colors">./training</a>
+          <a href="#certs" className="hover:text-green-400 transition-colors">./certs</a>
+          <a href="#achievements" className="hover:text-green-400 transition-colors">./achievements</a>
         </div>
       </nav>
 
@@ -312,62 +314,211 @@ export default function Home() {
           </div>
         </section>
 
-        {/* CERTIFICATES & ACHIEVEMENTS SECTION */}
+        {/* CERTIFICATIONS SECTION */}
         <section id="certs" className="space-y-8 z-20 relative scroll-mt-32">
           <div className="flex items-center gap-4">
-            <h2 className="text-3xl font-bold text-white"><span className="text-green-500">#</span> Credentials_And_Milestones</h2>
+            <h2 className="text-3xl font-bold text-white"><span className="text-green-500">#</span> Certifications</h2>
+            <div className="h-[1px] flex-1 bg-gradient-to-r from-green-500/50 to-transparent"></div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* NPTEL Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0 }}
+              className="bg-[#111]/80 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 flex flex-col hover:border-blue-500/50 transition-all group hover:shadow-[0_0_25px_rgba(59,130,246,0.15)]"
+            >
+              <div className="relative h-44 overflow-hidden bg-gradient-to-b from-blue-900/40 via-blue-800/20 to-[#111] flex items-center justify-center shrink-0">
+                <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(circle at 50% 50%, currentColor 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
+                <div className="relative group-hover:scale-110 transition-transform duration-500 flex flex-col items-center gap-2">
+                  <svg viewBox="0 0 200 60" className="w-40 h-auto">
+                    <rect x="10" y="5" width="50" height="50" rx="5" fill="#2563eb" opacity="0.8"/>
+                    <text x="35" y="38" textAnchor="middle" fill="white" fontSize="20" fontWeight="bold" fontFamily="Arial, sans-serif">N</text>
+                    <text x="130" y="40" textAnchor="middle" fill="#60a5fa" fontSize="28" fontWeight="bold" fontFamily="Arial, sans-serif">NPTEL</text>
+                  </svg>
+                  <span className="text-blue-400/60 text-[10px] tracking-widest uppercase">National Programme on Technology Enhanced Learning</span>
+                </div>
+              </div>
+              <div className="p-5 flex flex-col flex-1">
+                <h4 className="font-bold text-white text-base mb-2 leading-snug">Ethical Hacking</h4>
+                <p className="text-green-400 text-xs font-bold uppercase tracking-wider mb-2">NPTEL</p>
+                <p className="text-xs text-gray-400 leading-relaxed flex-1">Comprehensive course covering ethical hacking methodologies, vulnerability assessment, and penetration testing fundamentals.</p>
+                <div className="flex items-center justify-between mt-4 pt-3 border-t border-gray-800">
+                  <span className="text-xs text-gray-500 font-mono flex items-center gap-1.5"><Calendar className="w-3 h-3" />Nov 2025</span>
+                  <span className="px-2 py-0.5 text-[10px] border rounded-full font-bold uppercase tracking-wider bg-blue-500/10 border-blue-500/30 text-blue-400">Verified</span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Infosys Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.15 }}
+              className="bg-[#111]/80 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 flex flex-col hover:border-cyan-500/50 transition-all group hover:shadow-[0_0_25px_rgba(6,182,212,0.15)]"
+            >
+              <div className="relative h-44 overflow-hidden bg-gradient-to-b from-blue-600/30 via-cyan-900/20 to-[#111] flex items-center justify-center shrink-0">
+                <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(circle at 50% 50%, currentColor 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
+                <div className="relative group-hover:scale-110 transition-transform duration-500">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Infosys_logo.svg/1280px-Infosys_logo.svg.png"
+                    alt="Infosys"
+                    className="h-14 object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]"
+                  />
+                </div>
+              </div>
+              <div className="p-5 flex flex-col flex-1">
+                <h4 className="font-bold text-white text-base mb-2 leading-snug">Ethical Hacking Masterclass</h4>
+                <p className="text-green-400 text-xs font-bold uppercase tracking-wider mb-2">INFOSYS</p>
+                <p className="text-xs text-gray-400 leading-relaxed flex-1">Advanced ethical hacking techniques including network exploitation, web application security, and social engineering.</p>
+                <div className="flex items-center justify-between mt-4 pt-3 border-t border-gray-800">
+                  <span className="text-xs text-gray-500 font-mono flex items-center gap-1.5"><Calendar className="w-3 h-3" />July 2025</span>
+                  <span className="px-2 py-0.5 text-[10px] border rounded-full font-bold uppercase tracking-wider bg-cyan-500/10 border-cyan-500/30 text-cyan-400">Verified</span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Coursera Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="bg-[#111]/80 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 flex flex-col hover:border-blue-400/50 transition-all group hover:shadow-[0_0_25px_rgba(96,165,250,0.15)]"
+            >
+              <div className="relative h-44 overflow-hidden bg-gradient-to-b from-blue-700/30 via-indigo-900/20 to-[#111] flex items-center justify-center shrink-0">
+                <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(circle at 50% 50%, currentColor 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
+                <div className="relative group-hover:scale-110 transition-transform duration-500 flex items-center gap-4">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Coursera-Logo_600x600.svg/600px-Coursera-Logo_600x600.svg.png"
+                    alt="Coursera"
+                    className="h-12 object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]"
+                  />
+                  <div className="flex items-center gap-1">
+                    <svg viewBox="0 0 48 48" className="w-8 h-8">
+                      <circle cx="24" cy="24" r="20" fill="none" stroke="#4285f4" strokeWidth="4"/>
+                      <path d="M12 24 L20 32 L36 16" fill="none" stroke="#34a853" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                    <span className="text-blue-400 text-xs font-bold">Google</span>
+                  </div>
+                </div>
+              </div>
+              <div className="p-5 flex flex-col flex-1">
+                <h4 className="font-bold text-white text-base mb-2 leading-snug">The Bits and Bytes of Computer Networking</h4>
+                <p className="text-green-400 text-xs font-bold uppercase tracking-wider mb-2">GOOGLE (COURSERA)</p>
+                <p className="text-xs text-gray-400 leading-relaxed flex-1">Deep dive into networking fundamentals, TCP/IP, DNS, DHCP, and network troubleshooting methods.</p>
+                <div className="flex items-center justify-between mt-4 pt-3 border-t border-gray-800">
+                  <span className="text-xs text-gray-500 font-mono flex items-center gap-1.5"><Calendar className="w-3 h-3" />Sep 2024</span>
+                  <span className="px-2 py-0.5 text-[10px] border rounded-full font-bold uppercase tracking-wider bg-blue-500/10 border-blue-400/30 text-blue-400">Verified</span>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* ACHIEVEMENTS SECTION */}
+        <section id="achievements" className="space-y-8 z-20 relative scroll-mt-32">
+          <div className="flex items-center gap-4">
+            <h2 className="text-3xl font-bold text-white"><span className="text-green-500">#</span> Achievements</h2>
             <div className="h-[1px] flex-1 bg-gradient-to-r from-green-500/50 to-transparent"></div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {/* Certifications */}
-            <div className="bg-[#111]/80 backdrop-blur-sm p-6 rounded-xl border border-gray-800">
-              <h3 className="text-2xl text-green-400 font-bold flex items-center gap-2 mb-6">
-                <Award className="w-6 h-6" /> Certifications
-              </h3>
-              <div className="space-y-4">
-                {[
-                  { name: "Ethical Hacking", org: "NPTEL", date: "Nov 2025", img: "/nptel.png" },
-                  { name: "Ethical Hacking Masterclass", org: "Infosys", date: "July 2025", img: "/infosys.png" },
-                  { name: "The Bits and Bytes of Computer Networking", org: "Google (Coursera)", date: "Sep 2024", img: "/coursera.png" }
-                ].map((cert, idx) => (
-                  <div key={idx} className="flex gap-4 p-4 bg-[#0a0a0a]/80 border border-gray-800 rounded-lg hover:border-green-500/30 transition-colors">
-                    <div className="w-16 h-12 bg-black rounded overflow-hidden flex items-center justify-center shrink-0 border border-gray-700 p-1">
-                      <img src={cert.img} alt={cert.org} className="max-h-full max-w-full object-contain" />
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-white text-sm">{cert.name}</h4>
-                      <p className="text-xs text-green-500 mt-1">{cert.org}</p>
-                      <p className="text-xs text-gray-500 font-mono mt-1">{cert.date}</p>
-                    </div>
-                  </div>
-                ))}
+            {/* CTF Achievement */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="bg-[#111]/80 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 flex flex-col hover:border-green-500/50 transition-all group hover:shadow-[0_0_25px_rgba(34,197,94,0.15)]"
+            >
+              {/* CTF Icon Hero */}
+              <div className="relative h-52 overflow-hidden bg-gradient-to-b from-green-900/30 via-emerald-900/10 to-[#111] flex items-center justify-center shrink-0">
+                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle, #22c55e 1px, transparent 1px)', backgroundSize: '15px 15px' }}></div>
+                {/* CTF Trophy SVG Icon */}
+                <div className="relative group-hover:scale-110 transition-transform duration-500">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" className="w-28 h-28 drop-shadow-[0_0_20px_rgba(34,197,94,0.4)]">
+                    <path d="M35 25h50v5h15v20c0 10-8 18-18 18h-2c-3 8-10 14-20 16v11h15v5H45v-5h15V84c-10-2-17-8-20-16h-2c-10 0-18-8-18-18V28h15v-3z" fill="#22c55e" opacity="0.9"/>
+                    <path d="M42 30h36v30c0 12-8 20-18 20s-18-8-18-20V30z" fill="#111" stroke="#22c55e" strokeWidth="2"/>
+                    <path d="M50 45l5-4 5 4-2-6 5-4h-6l-2-6-2 6h-6l5 4-2 6z" fill="#22c55e"/>
+                    <text x="60" y="72" textAnchor="middle" fill="#22c55e" fontSize="8" fontFamily="monospace" fontWeight="bold">CTF</text>
+                    <path d="M32 30h-10v18c0 8 6 14 13 14h2" fill="none" stroke="#22c55e" strokeWidth="2" opacity="0.5"/>
+                    <path d="M88 30h10v18c0 8-6 14-13 14h-2" fill="none" stroke="#22c55e" strokeWidth="2" opacity="0.5"/>
+                    <rect x="45" y="95" width="30" height="5" rx="2" fill="#22c55e" opacity="0.7"/>
+                    <rect x="40" y="98" width="40" height="4" rx="2" fill="#22c55e" opacity="0.5"/>
+                  </svg>
+                </div>
+                <div className="absolute top-4 right-4">
+                  <span className="px-3 py-1.5 bg-green-500/20 border border-green-500/40 text-green-400 rounded-full text-xs font-bold backdrop-blur-sm flex items-center gap-1.5">
+                    <Award className="w-3.5 h-3.5" /> 4th Place
+                  </span>
+                </div>
               </div>
-            </div>
+              <div className="p-6 flex flex-col flex-1">
+                <div className="flex justify-between items-start mb-3">
+                  <h4 className="text-xl font-bold text-white flex items-center gap-2">
+                    <Shield className="w-5 h-5 text-green-500 shrink-0" /> CTF Competition
+                  </h4>
+                  <span className="text-xs text-gray-500 font-mono flex items-center gap-1.5 whitespace-nowrap"><Calendar className="w-3 h-3" /> Mar 2025</span>
+                </div>
+                <p className="text-sm text-gray-400 leading-relaxed flex-1">Ranked <span className="text-green-400 font-bold">4th out of 100 teams</span> (4 participants per team) in a highly competitive cybersecurity Capture the Flag event. Demonstrated expertise in cryptography, reverse engineering, and web exploitation challenges.</p>
+                <div className="flex flex-wrap gap-2 pt-4 mt-4 border-t border-gray-800">
+                  {["Cryptography", "Reverse Engineering", "Web Exploitation", "Forensics"].map(tag => (
+                    <span key={tag} className="px-2 py-0.5 text-xs bg-gray-900 border border-gray-700 text-gray-300 rounded">{tag}</span>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
 
-            {/* Achievements */}
-            <div className="bg-[#111]/80 backdrop-blur-sm p-6 rounded-xl border border-gray-800">
-              <h3 className="text-2xl text-green-400 font-bold flex items-center gap-2 mb-6">
-                <Shield className="w-6 h-6" /> Achievements
-              </h3>
-              <div className="space-y-6">
-                <div className="bg-[#0a0a0a]/80 p-5 border border-gray-800 rounded-lg border-l-2 border-l-green-500">
-                  <div className="flex justify-between items-start mb-2">
-                    <h4 className="font-bold text-white">4th Rank in CTF Competition</h4>
-                    <span className="text-xs text-gray-500 font-mono">Mar 2025</span>
-                  </div>
-                  <p className="text-sm text-gray-400">Ranked 4th out of 100 teams (4 participants per team) in a highly competitive cybersecurity Capture the Flag event.</p>
+            {/* Duolingo Streak Achievement */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="bg-[#111]/80 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 flex flex-col hover:border-amber-500/50 transition-all group hover:shadow-[0_0_25px_rgba(245,158,11,0.15)]"
+            >
+              {/* Duolingo Logo Hero */}
+              <div className="relative h-52 overflow-hidden bg-gradient-to-b from-green-600/20 via-lime-900/10 to-[#111] flex items-center justify-center shrink-0">
+                <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(circle, #84cc16 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
+                <div className="relative group-hover:scale-110 transition-transform duration-500 flex flex-col items-center gap-2">
+                  {/* Duolingo Owl SVG */}
+                  <svg viewBox="0 0 100 100" className="w-20 h-20 drop-shadow-[0_0_15px_rgba(132,204,22,0.4)]">
+                    <ellipse cx="50" cy="50" rx="35" ry="40" fill="#58cc02"/>
+                    <ellipse cx="38" cy="40" rx="12" ry="14" fill="white"/>
+                    <ellipse cx="62" cy="40" rx="12" ry="14" fill="white"/>
+                    <circle cx="40" cy="40" r="6" fill="#111"/>
+                    <circle cx="64" cy="40" r="6" fill="#111"/>
+                    <circle cx="42" cy="38" r="2" fill="white"/>
+                    <circle cx="66" cy="38" r="2" fill="white"/>
+                    <ellipse cx="50" cy="56" rx="7" ry="5" fill="#fbbf24"/>
+                    <ellipse cx="30" cy="60" rx="5" ry="3" fill="#46a302" transform="rotate(-20,30,60)"/>
+                    <ellipse cx="70" cy="60" rx="5" ry="3" fill="#46a302" transform="rotate(20,70,60)"/>
+                  </svg>
+                  <span className="text-lime-400 text-lg font-bold tracking-wider">Duolingo</span>
                 </div>
-                
-                <div className="bg-[#0a0a0a]/80 p-5 border border-gray-800 rounded-lg border-l-2 border-l-blue-500">
-                  <div className="flex justify-between items-start mb-2">
-                    <h4 className="font-bold text-white">365+ Day Learning Streak</h4>
-                    <span className="text-xs text-gray-500 font-mono">Jan 2025 - Present</span>
-                  </div>
-                  <p className="text-sm text-gray-400">Consistently progressing in Spanish on Duolingo with ongoing rigorous daily commitment.</p>
+                <div className="absolute top-4 right-4">
+                  <span className="px-3 py-1.5 bg-amber-500/20 border border-amber-500/40 text-amber-400 rounded-full text-xs font-bold backdrop-blur-sm flex items-center gap-1.5">
+                    🔥 365+ Days
+                  </span>
                 </div>
               </div>
-            </div>
+              <div className="p-6 flex flex-col flex-1">
+                <div className="flex justify-between items-start mb-3">
+                  <h4 className="text-xl font-bold text-white flex items-center gap-2">
+                    <BookOpen className="w-5 h-5 text-amber-500 shrink-0" /> Learning Streak
+                  </h4>
+                  <span className="text-xs text-gray-500 font-mono flex items-center gap-1.5 whitespace-nowrap"><Calendar className="w-3 h-3" /> Jan 2025 - Present</span>
+                </div>
+                <p className="text-sm text-gray-400 leading-relaxed flex-1">Consistently progressing in Spanish on Duolingo with an ongoing rigorous daily commitment of <span className="text-amber-400 font-bold">365+ consecutive days</span>. This streak demonstrates discipline, consistency, and a passion for continuous learning.</p>
+                <div className="flex flex-wrap gap-2 pt-4 mt-4 border-t border-gray-800">
+                  {["Discipline", "Consistency", "Language Learning", "Daily Practice"].map(tag => (
+                    <span key={tag} className="px-2 py-0.5 text-xs bg-gray-900 border border-gray-700 text-gray-300 rounded">{tag}</span>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
           </div>
         </section>
 
