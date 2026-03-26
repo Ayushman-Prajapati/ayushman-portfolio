@@ -279,7 +279,7 @@ export default function Home() {
                       </h3>
                       <p className="text-sm text-green-400 flex items-center gap-1 mt-1"><Calendar className="w-3 h-3"/> July 2025</p>
                     </div>
-                    <a href="https://github.com/Ayushman-Prajapati" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-green-400 p-1">
+                    <a href="https://github.com/Ayushman-Prajapati/WatchDog" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-green-400 p-1">
                       <ExternalLink className="w-5 h-5" />
                     </a>
                   </div>
@@ -332,7 +332,7 @@ export default function Home() {
                   <h3 className="text-2xl font-bold text-white flex items-center gap-2">
                     <Briefcase className="w-6 h-6 text-green-500" /> Cybersecurity & Ethical Hacking
                   </h3>
-                  <p className="text-lg text-green-400 mt-1">Techvanto Academy</p>
+                  <a href="https://drive.google.com/file/d/10o2uwanLHGBqqynfBZNMRlmtYH_EQZ9P/view" target="_blank" rel="noreferrer" className="text-lg text-green-400 mt-1 hover:underline">Techvanto Academy</a>
                 </div>
                 <span className="text-gray-400 flex items-center gap-2 mt-4 md:mt-0 font-mono text-sm">
                   <Calendar className="w-4 h-4" /> June 2025 – July 2025
@@ -350,7 +350,7 @@ export default function Home() {
           {/* CERTIFICATIONS SECTION */}
           <section id="certs" className="space-y-8 z-20 relative scroll-mt-32">
             <div className="flex items-center gap-4">
-              <h2 className="text-3xl font-bold text-white"><span className="text-green-500">#</span> Certifications</h2>
+              <h2 className="text-3xl font-bold text-white"><span className="text-green-500">#</span> Certificates</h2>
               <div className="h-[1px] flex-1 bg-gradient-to-r from-green-500/50 to-transparent"></div>
             </div>
 
@@ -379,7 +379,12 @@ export default function Home() {
                   <p className="text-xs text-gray-400 leading-relaxed flex-1">Comprehensive course covering ethical hacking methodologies, vulnerability assessment, and penetration testing fundamentals.</p>
                   <div className="flex items-center justify-between mt-4 pt-3 border-t border-gray-800">
                     <span className="text-xs text-gray-500 font-mono flex items-center gap-1.5"><Calendar className="w-3 h-3" />Nov 2025</span>
-                    <span className="px-2 py-0.5 text-[10px] border rounded-full font-bold uppercase tracking-wider bg-blue-500/10 border-blue-500/30 text-blue-400">Verified</span>
+                    <div className="flex items-center gap-3">
+                      <a href="https://archive.nptel.ac.in/content/noc/NOC25/SEM2/Ecertificates/106/noc25-cs142/Course/NPTEL25CS142S95870059710402309.pdf" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-blue-400 transition-colors">
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                      <span className="px-2 py-0.5 text-[10px] border rounded-full font-bold uppercase tracking-wider bg-blue-500/10 border-blue-500/30 text-blue-400">Verified</span>
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -407,7 +412,12 @@ export default function Home() {
                   <p className="text-xs text-gray-400 leading-relaxed flex-1">Advanced ethical hacking techniques including network exploitation, web application security, and social engineering.</p>
                   <div className="flex items-center justify-between mt-4 pt-3 border-t border-gray-800">
                     <span className="text-xs text-gray-500 font-mono flex items-center gap-1.5"><Calendar className="w-3 h-3" />July 2025</span>
-                    <span className="px-2 py-0.5 text-[10px] border rounded-full font-bold uppercase tracking-wider bg-cyan-500/10 border-cyan-500/30 text-cyan-400">Verified</span>
+                    <div className="flex items-center gap-3">
+                      <a href="https://drive.google.com/file/d/1B-X1kcfnZzfrhWlcz0s7rxcvESxpVYDj/view" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                      <span className="px-2 py-0.5 text-[10px] border rounded-full font-bold uppercase tracking-wider bg-cyan-500/10 border-cyan-500/30 text-cyan-400">Verified</span>
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -442,7 +452,12 @@ export default function Home() {
                   <p className="text-xs text-gray-400 leading-relaxed flex-1">Deep dive into networking fundamentals, TCP/IP, DNS, DHCP, and network troubleshooting methods.</p>
                   <div className="flex items-center justify-between mt-4 pt-3 border-t border-gray-800">
                     <span className="text-xs text-gray-500 font-mono flex items-center gap-1.5"><Calendar className="w-3 h-3" />Sep 2024</span>
-                    <span className="px-2 py-0.5 text-[10px] border rounded-full font-bold uppercase tracking-wider bg-blue-500/10 border-blue-400/30 text-blue-400">Verified</span>
+                    <div className="flex items-center gap-3">
+                      <a href="https://www.coursera.org/account/accomplishments/verify/P31QS2BSA1FF" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-blue-400 transition-colors">
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                      <span className="px-2 py-0.5 text-[10px] border rounded-full font-bold uppercase tracking-wider bg-blue-500/10 border-blue-400/30 text-blue-400">Verified</span>
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -533,7 +548,12 @@ export default function Home() {
                     <h4 className="text-xl font-bold text-white flex items-center gap-2">
                       <BookOpen className="w-5 h-5 text-amber-500 shrink-0" /> Learning Streak
                     </h4>
-                    <span className="text-xs text-gray-500 font-mono flex items-center gap-1.5 whitespace-nowrap"><Calendar className="w-3 h-3" /> Jan 2025 - Present</span>
+                    <div className="flex items-center gap-3">
+                      <a href="https://www.duolingo.com/profile/Ayushman226" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-amber-400 transition-colors">
+                        <ExternalLink className="w-5 h-5" />
+                      </a>
+                      <span className="text-xs text-gray-500 font-mono flex items-center gap-1.5 whitespace-nowrap"><Calendar className="w-3 h-3" /> Jan 2025 - Present</span>
+                    </div>
                   </div>
                   <p className="text-sm text-gray-400 leading-relaxed flex-1">Consistently progressing in Spanish on Duolingo with an ongoing rigorous daily commitment of <span className="text-amber-400 font-bold">365+ consecutive days</span>. This streak demonstrates discipline, consistency, and a passion for continuous learning.</p>
                   <div className="flex flex-wrap gap-2 pt-4 mt-4 border-t border-gray-800">
